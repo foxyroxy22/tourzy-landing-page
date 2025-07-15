@@ -86,7 +86,7 @@ header .inner {
 
 .home h2 {
   position: absolute;
-  color: #4D4C4A;
+  color: #4d4c4a;
   font-size: 5rem;
   font-weight: 300;
   top: -50px;
@@ -132,7 +132,6 @@ header .inner {
   height: 40px;
 }
 
-
 .home .main-visual .txt-box {
   width: 25%;
   background-color: var(--main-color);
@@ -159,7 +158,7 @@ header .inner {
   display: flex;
   justify-content: space-between;
   padding: 42px 68px;
-  background-color: #FEF0E5;
+  background-color: #fef0e5;
   border-radius: 40px;
   margin-top: 40px;
 }
@@ -169,7 +168,7 @@ header .inner {
 }
 .home .main-bottom .download {
   padding-right: 104px;
-  border-right: 1px solid #BCBCBC;
+  border-right: 1px solid #bcbcbc;
 }
 .home .main-bottom .download ul {
   display: flex;
@@ -186,7 +185,7 @@ header .inner {
   color: #fff;
   width: 170px;
   height: 60px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .home .main-bottom .download ul li:hover a {
   background-color: var(--main-color);
@@ -229,7 +228,7 @@ header .inner {
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #FEF0E5;
+  background-color: #fef0e5;
   border-radius: 30px 30px 0 0;
   padding: 8px 24px;
   font-size: 1.3rem;
@@ -290,7 +289,8 @@ header .inner {
 /* esg */
 .esg {
   background: url(../img/esg-bg.png) no-repeat center / cover;
-}.esg .inner {
+}
+.esg .inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -345,7 +345,6 @@ header .inner {
   gap: 50px;
   position: absolute;
   top: 180px;
-
 }
 .function .txt h3 {
   color: #373737;
@@ -370,7 +369,6 @@ header .inner {
   color: #fff;
   text-align: center;
   justify-content: space-between;
-
 }
 .function ul li:nth-child(1) {
   background: url(../img/function01.png) no-repeat center / cover;
@@ -400,7 +398,7 @@ header .inner {
   padding: 15px 40px;
   text-transform: uppercase;
   border-radius: 50px;
-  transition: all .5s;
+  transition: all 0.5s;
   cursor: pointer;
 }
 .function .more:hover {
@@ -459,7 +457,7 @@ header .inner {
 }
 .manual .mobile > li {
   display: flex;
-  align-items: center; 
+  align-items: center;
   gap: 5vw;
   color: #fff;
 }
@@ -494,9 +492,9 @@ header .inner {
 }
 
 .manual .mobile > li .txt {
-    width: calc((100% - 5vw) / 2);
-    height: 40vh;
-    position: relative;
+  width: calc((100% - 5vw) / 2);
+  height: 40vh;
+  position: relative;
 }
 .manual .mobile > li .txt h3 {
   font-size: 2.4rem;
@@ -522,7 +520,7 @@ header .inner {
   cursor: pointer;
 }
 .manual .mobile > li .txt .mobile-slide-btn > div {
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .manual .mobile > li .txt .mobile-slide-btn > div:hover {
   color: var(--main-color);
@@ -608,6 +606,30 @@ header .inner {
   }
 }
 
+@media (max-width: 1440px) {
+  .partner .partner-inner {
+    margin-left: 20px;
+  }
+  .partner h2 {
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .partner .partner-inner {
+    gap: 5%;
+  }
+  .partner h2 {
+    font-size: 6rem;
+  }
+  .partner-slider-container {
+    width: 80%;
+  }
+  .partner-slider-container.reverse {
+    display: none;
+  }
+}
+
 /* footer */
 footer {
   background-color: #373737;
@@ -615,15 +637,22 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 70px;
+  padding: 70px 0;
 }
 footer .inner {
   display: flex;
   justify-content: space-between;
+  gap: 30px;
+  position: relative;
 }
 
 footer .f-logo {
-  margin-top: 50px;
+  width: 150px;
+}
+footer .f-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 footer .f-txt {
   width: 70%;
@@ -635,7 +664,7 @@ footer .f-txt .tnc {
 footer .f-txt p {
   margin: 30px 0;
   font-weight: 200;
-  opacity: .5;
+  opacity: 0.5;
 }
 footer .f-txt .info {
   display: flex;
@@ -662,14 +691,43 @@ footer .sns img {
   object-fit: contain;
 }
 
+@media (max-width: 1050px) {
+  footer {
+    padding: 40px 0;
+    font-size: 1.4rem;
+  }
+  footer .f-logo {
+    width: 100px;
+  }
+  footer .f-txt {
+    width: 100%;
+  }
+  footer .f-txt p {
+    font-size: 1.2rem;
+  }
+  footer .f-txt .info span {
+    margin: 0;
+    display: block;
+  }
+  footer .sns {
+    font-size: 1.2rem;
+    position: absolute;
+    top: -5px;
+    right: 20px;
+  }
+  footer .sns li {
+    width: 25px;
+    height: 25px;
+  }
+}
+
 /* fp nav */
 #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
-    background: #d9d9d9;
+  background: #d9d9d9;
 }
 
 #fp-nav ul li a.active span,
 .fp-slidesNav ul li a.active span {
-    background: var(--main-color);
+  background: var(--main-color);
 }
-
