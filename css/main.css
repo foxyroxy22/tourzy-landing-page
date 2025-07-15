@@ -60,6 +60,12 @@ header h1 img {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  header.white {
+    color: #1a1a1a;
+  }
+}
+
 /* 새로 추가 */
 .section {
   height: 100vh;
