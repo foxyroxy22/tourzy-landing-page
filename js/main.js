@@ -138,6 +138,12 @@ $(document).ready(function () {
       );
     });
   }
+  // home 높이 동기화
+  function syncHeight() {
+    $('.home .main-visual .txt-box').outerHeight($('.home .main-visual .home-slide').height());
+  }
+  $(window).on('load resize', syncHeight);
+
 
   // 각 탭별 swiper 인스턴스를 저장할 배열
   let swipers = [];
