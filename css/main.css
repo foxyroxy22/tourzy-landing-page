@@ -721,6 +721,10 @@ footer .sns img {
   }
 }
 
+@media (max-width: 1024px) {
+  
+}
+
 /* fp nav */
 #fp-nav ul li a span,
 .fp-slidesNav ul li a span {
