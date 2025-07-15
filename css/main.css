@@ -60,7 +60,7 @@ header h1 img {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   header.white {
     color: #1a1a1a;
   }
@@ -86,6 +86,17 @@ header h1 img {
   height: 100vh;
   display: table-cell;
   vertical-align: middle;
+}
+
+@media (max-width: 1024px) {
+  .fp-section.fp-table,
+  .fp-slide.fp-table {
+    height: auto !important;
+  }
+
+  .fp-tableCell {
+    height: auto !important;
+  }
 }
 
 .gnb {
@@ -984,6 +995,9 @@ header h1 img {
 }
 
 @media (max-width: 1024px) {
+  .partner {
+    padding-top: 200px;
+  }
   .partner .partner-inner {
     gap: 5%;
   }
@@ -1106,6 +1120,12 @@ footer .sns img {
   footer .inner {
     flex-wrap: wrap;
   }
+  footer {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
 }
 
 /* fp nav */
