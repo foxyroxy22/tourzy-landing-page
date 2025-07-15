@@ -139,55 +139,56 @@ $(document).ready(function () {
     });
   }
 
-// 각 탭별 swiper 인스턴스를 저장할 배열
-let swipers = [];
+  // 각 탭별 swiper 인스턴스를 저장할 배열
+  let swipers = [];
 
-// 초기 설정
-$(".mobile > li").hide();
-$(".mobile > li").eq(0).show();
+  // 초기 설정
+  $(".mobile > li").hide();
+  $(".mobile > li").eq(0).show();
 
-// 각 탭별 swiper 초기화 함수
-function initSwiper(index) {
-  const screen = new Swiper(`.screen-${index}`, {
-    // screen swiper 설정 (필요한 옵션 추가 가능)
-  });
-  
-  const txt = new Swiper(`.txt-${index}`, {
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    navigation: {
-      nextEl: `.btn-${index} .next-btn`,
-      prevEl: `.btn-${index} .prev-btn`,
-    },
-  });
+  // 각 탭별 swiper 초기화 함수
+  function initSwiper(index) {
+    const screen = new Swiper(`.screen-${index}`, {
+      // screen swiper 설정 (필요한 옵션 추가 가능)
+    });
 
-  // 두 swiper 연동
-  screen.controller.control = txt;
-  txt.controller.control = screen;
+    const txt = new Swiper(`.txt-${index}`, {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      navigation: {
+        nextEl: `.btn-${index} .next-btn`,
+        prevEl: `.btn-${index} .prev-btn`,
+      },
+    });
 
-  return { screen, txt };
-}
+    // 두 swiper 연동
+    screen.controller.control = txt;
+    txt.controller.control = screen;
 
-// 모든 탭의 swiper 초기화 (5개)
-for (let i = 0; i < 5; i++) {
-  swipers[i] = initSwiper(i);
-}
-
-// 탭 클릭 이벤트
-$(".menu ul li").click(function () {
-  $(this).addClass("active").siblings().removeClass("active");
-
-  let activeIndex = $(this).index();
-
-  // 탭 내용 표시/숨김
-  $(".mobile > li").eq(activeIndex).show().siblings().hide();
-
-  // 활성 탭의 swiper 업데이트 (크기 재계산)
-  if (swipers[activeIndex]) {
-    swipers[activeIndex].screen.update();
-    swipers[activeIndex].txt.update();
+    return { screen, txt };
   }
-});
+
+  // 모든 탭의 swiper 초기화 (5개)
+  for (let i = 0; i < 5; i++) {
+    swipers[i] = initSwiper(i);
+  }
+
+  // 탭 클릭 이벤트
+  $(".menu ul li").click(function () {
+    $(this).addClass("active").siblings().removeClass("active");
+
+    let activeIndex = $(this).index();
+
+    // 탭 내용 표시/숨김
+    $(".mobile > li").eq(activeIndex).show().siblings().hide();
+
+    // 활성 탭의 swiper 업데이트 (크기 재계산)
+    if (swipers[activeIndex]) {
+      swipers[activeIndex].screen.update();
+      swipers[activeIndex].txt.update();
+    }
+  });
+
 }); //end
