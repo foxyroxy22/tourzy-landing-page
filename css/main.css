@@ -511,7 +511,7 @@ header .inner {
   text-transform: uppercase;
   display: flex;
   gap: 15%;
-  cursor: pointer !important;
+  cursor: pointer;
 }
 .manual .mobile > li .txt .mobile-slide-btn > div {
   transition: all .3s;

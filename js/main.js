@@ -139,39 +139,55 @@ $(document).ready(function () {
     });
   }
 
-  // manual section tab action
-  $(".mobile > li").hide();
+// 각 탭별 swiper 인스턴스를 저장할 배열
+let swipers = [];
 
-  $(".mobile > li").eq(0).show();
+// 초기 설정
+$(".mobile > li").hide();
+$(".mobile > li").eq(0).show();
 
-  $(".menu ul li").click(function () {
-    $(this).addClass("active").siblings().removeClass("active");
-
-    let aa = $(this).index();
-
-    $(".mobile > li").eq(aa).show().siblings().hide();
+// 각 탭별 swiper 초기화 함수
+function initSwiper(index) {
+  const screen = new Swiper(`.screen-${index}`, {
+    // screen swiper 설정 (필요한 옵션 추가 가능)
   });
-
-  // mobile > li swipers
-  const screen = new Swiper(".rent .screen", {});
-  const txt01 = new Swiper(".rent .txt", {
+  
+  const txt = new Swiper(`.txt-${index}`, {
     effect: "fade",
     fadeEffect: {
       crossFade: true,
     },
     navigation: {
-      nextEl: ".mobile-slide-btn .next-btn",
-      prevEl: ".mobile-slide-btn .prev-btn",
+      nextEl: `.btn-${index} .next-btn`,
+      prevEl: `.btn-${index} .prev-btn`,
     },
   });
 
-  screen.controller.control = txt01;
-  txt01.controller.control = screen;
+  // 두 swiper 연동
+  screen.controller.control = txt;
+  txt.controller.control = screen;
 
+  return { screen, txt };
+}
 
+// 모든 탭의 swiper 초기화 (5개)
+for (let i = 0; i < 5; i++) {
+  swipers[i] = initSwiper(i);
+}
 
-  const re_turn = new Swiper(".return", {});
-  const bicycle = new Swiper(".bicycle", {});
-  const trip = new Swiper(".trip", {});
-  const history = new Swiper(".history", {});
+// 탭 클릭 이벤트
+$(".menu ul li").click(function () {
+  $(this).addClass("active").siblings().removeClass("active");
+
+  let activeIndex = $(this).index();
+
+  // 탭 내용 표시/숨김
+  $(".mobile > li").eq(activeIndex).show().siblings().hide();
+
+  // 활성 탭의 swiper 업데이트 (크기 재계산)
+  if (swipers[activeIndex]) {
+    swipers[activeIndex].screen.update();
+    swipers[activeIndex].txt.update();
+  }
+});
 }); //end
