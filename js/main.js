@@ -1,0 +1,177 @@
+$(document).ready(function () {
+  var page = $(".fullpage").fullpage({
+    anchors: ["menu1", "menu2", "menu3", "menu4", "menu5", "menu6"],
+
+    navigation: true,
+    navigationTooltips: [
+      "Home",
+      "About Us 1",
+      "About Us 2",
+      "App 1",
+      "App 2",
+      "Partner",
+    ],
+    navigationPosition: "left",
+    showActiveTooltip: true,
+    responsiveWidth: 1024,
+
+    // 섹션 이동 시 GNB 활성화 상태 업데이트 - 매개변수 수정
+    onLeave: function (index, nextIndex, direction) {
+      console.log("onLeave - index:", index, "nextIndex:", nextIndex);
+      updateGNBActive(nextIndex);
+    },
+    // 추가로 afterLoad도 사용
+    afterLoad: function (anchorLink, index) {
+      console.log("afterLoad - index:", index);
+      updateGNBActive(index);
+
+      if (index === 2) {
+        startCountAnimation();
+      }
+    },
+  }); // fullpage
+
+  // GNB 클릭 이벤트
+  $(".gnb li").on("click", function () {
+    var sectionNum = $(this).data("section");
+    console.log("Clicked section:", sectionNum);
+    $.fn.fullpage.moveTo(sectionNum);
+  });
+
+  // GNB 활성화 상태 업데이트 함수
+  function updateGNBActive(currentSection) {
+    console.log("updateGNBActive called with:", currentSection);
+
+    $(".gnb li").removeClass("active");
+
+    var activeGNBSection;
+    if (currentSection === 1) activeGNBSection = 1; // Home
+    else if (currentSection === 2 || currentSection === 3)
+      activeGNBSection = 2; // About Us
+    else if (currentSection === 4 || currentSection === 5)
+      activeGNBSection = 4; // App
+    else if (currentSection === 6) activeGNBSection = 6; // Partner
+
+    console.log("Current Section:", currentSection);
+    console.log("Active GNB Section:", activeGNBSection);
+
+    if (activeGNBSection) {
+      $('.gnb li[data-section="' + activeGNBSection + '"]').addClass("active");
+      console.log(
+        "Added active to:",
+        $('.gnb li[data-section="' + activeGNBSection + '"]')
+      );
+    }
+  }
+
+  // 초기 로드 시 첫 번째 섹션 활성화
+  updateGNBActive(1);
+
+  // home-slide
+  const home_slide = new Swiper(".home-slide", {
+    navigation: {
+      nextEl: ".home-slide-btn .next-btn",
+      prevEl: ".home-slide-btn .prev-btn",
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    speed: 800,
+    loop: true,
+
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+  }); //home_slide
+
+  // 초기 상태 설정 (pause 버튼만 보이게)
+  $(".home-slide-btn .pause").show();
+  $(".home-slide-btn .resume").hide();
+
+  // pause 버튼 클릭
+  $(".home-slide-btn .pause").click(function () {
+    home_slide.autoplay.stop();
+
+    // 버튼 토글
+    $(this).hide();
+    $(".home-slide-btn .resume").show();
+  });
+
+  // resume 버튼 클릭
+  $(".home-slide-btn .resume").click(function () {
+    home_slide.autoplay.start();
+
+    // 버튼 토글
+    $(this).hide();
+    $(".home-slide-btn .pause").show();
+  });
+
+  // 숫자 애니메이션 함수
+  function startCountAnimation() {
+    $(".num").each(function () {
+      const $this = $(this),
+        countTo = $this.attr("data-count");
+
+      // HTML에 숫자가 없어도 0부터 시작
+      $this.text("0");
+
+      $({
+        countNum: 0,
+      }).animate(
+        {
+          countNum: countTo,
+        },
+        {
+          duration: 2000,
+          easing: "linear",
+          step: function () {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function () {
+            $this.text(
+              this.countNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            );
+          },
+        }
+      );
+    });
+  }
+
+  // manual section tab action
+  $(".mobile > li").hide();
+
+  $(".mobile > li").eq(0).show();
+
+  $(".menu ul li").click(function () {
+    $(this).addClass("active").siblings().removeClass("active");
+
+    let aa = $(this).index();
+
+    $(".mobile > li").eq(aa).show().siblings().hide();
+  });
+
+  // mobile > li swipers
+  const screen = new Swiper(".rent .screen", {});
+  const txt01 = new Swiper(".rent .txt", {
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    navigation: {
+      nextEl: ".mobile-slide-btn .next-btn",
+      prevEl: ".mobile-slide-btn .prev-btn",
+    },
+  });
+
+  screen.controller.control = txt01;
+  txt01.controller.control = screen;
+
+
+
+  const re_turn = new Swiper(".return", {});
+  const bicycle = new Swiper(".bicycle", {});
+  const trip = new Swiper(".trip", {});
+  const history = new Swiper(".history", {});
+}); //end
