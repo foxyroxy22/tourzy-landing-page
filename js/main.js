@@ -138,6 +138,12 @@ $(document).ready(function () {
       );
     });
   }
+  // home 높이 동기화
+  function syncHeight() {
+    $('.home .main-visual .txt-box').outerHeight($('.home .main-visual .home-slide').height());
+  }
+  $(window).on('load resize', syncHeight);
+
 
   // manual section tab action
   $(".mobile > li").hide();
