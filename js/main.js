@@ -3,14 +3,7 @@ $(document).ready(function () {
     anchors: ["menu1", "menu2", "menu3", "menu4", "menu5", "menu6"],
 
     navigation: true,
-    navigationTooltips: [
-      "Home",
-      "About Us 1",
-      "About Us 2",
-      "App 1",
-      "App 2",
-      "Partner",
-    ],
+    navigationTooltips: [],
     navigationPosition: "left",
     showActiveTooltip: true,
     responsiveWidth: 1024,
@@ -19,6 +12,13 @@ $(document).ready(function () {
     onLeave: function (index, nextIndex, direction) {
       console.log("onLeave - index:", index, "nextIndex:", nextIndex);
       updateGNBActive(nextIndex);
+
+      // 헤더 스타일 변경
+      if (nextIndex == 3 || nextIndex == 5) {
+        $("header").addClass("white");
+      } else {
+        $("header").removeClass("white");
+      }
     },
     // 추가로 afterLoad도 사용
     afterLoad: function (anchorLink, index) {
@@ -190,5 +190,4 @@ $(document).ready(function () {
       swipers[activeIndex].txt.update();
     }
   });
-
 }); //end
