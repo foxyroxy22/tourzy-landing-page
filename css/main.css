@@ -530,6 +530,10 @@ header .inner {
 .mobile-slide-btn .swiper-button-disabled {
   opacity: 0.5;
 }
+.mobile-slide-btn > div.swiper-button-disabled:hover {
+  color: #fff !important;
+  opacity: 0.5;
+}
 
 /* partner */
 .partner {
