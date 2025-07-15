@@ -3,14 +3,7 @@ $(document).ready(function () {
     anchors: ["menu1", "menu2", "menu3", "menu4", "menu5", "menu6"],
 
     navigation: true,
-    navigationTooltips: [
-      "Home",
-      "About Us 1",
-      "About Us 2",
-      "App 1",
-      "App 2",
-      "Partner",
-    ],
+    navigationTooltips: [],
     navigationPosition: "left",
     showActiveTooltip: true,
     responsiveWidth: 1024,
@@ -19,6 +12,13 @@ $(document).ready(function () {
     onLeave: function (index, nextIndex, direction) {
       console.log("onLeave - index:", index, "nextIndex:", nextIndex);
       updateGNBActive(nextIndex);
+
+      // 헤더 스타일 변경
+      if (nextIndex == 3 || nextIndex == 5) {
+        $("header").addClass("white");
+      } else {
+        $("header").removeClass("white");
+      }
     },
     // 추가로 afterLoad도 사용
     afterLoad: function (anchorLink, index) {
@@ -145,39 +145,55 @@ $(document).ready(function () {
   $(window).on('load resize', syncHeight);
 
 
-  // manual section tab action
-  $(".mobile > li").hide();
+  // 각 탭별 swiper 인스턴스를 저장할 배열
+  let swipers = [];
 
+  // 초기 설정
+  $(".mobile > li").hide();
   $(".mobile > li").eq(0).show();
 
+  // 각 탭별 swiper 초기화 함수
+  function initSwiper(index) {
+    const screen = new Swiper(`.screen-${index}`, {
+      // screen swiper 설정 (필요한 옵션 추가 가능)
+    });
+
+    const txt = new Swiper(`.txt-${index}`, {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      navigation: {
+        nextEl: `.btn-${index} .next-btn`,
+        prevEl: `.btn-${index} .prev-btn`,
+      },
+    });
+
+    // 두 swiper 연동
+    screen.controller.control = txt;
+    txt.controller.control = screen;
+
+    return { screen, txt };
+  }
+
+  // 모든 탭의 swiper 초기화 (5개)
+  for (let i = 0; i < 5; i++) {
+    swipers[i] = initSwiper(i);
+  }
+
+  // 탭 클릭 이벤트
   $(".menu ul li").click(function () {
     $(this).addClass("active").siblings().removeClass("active");
 
-    let aa = $(this).index();
+    let activeIndex = $(this).index();
 
-    $(".mobile > li").eq(aa).show().siblings().hide();
+    // 탭 내용 표시/숨김
+    $(".mobile > li").eq(activeIndex).show().siblings().hide();
+
+    // 활성 탭의 swiper 업데이트 (크기 재계산)
+    if (swipers[activeIndex]) {
+      swipers[activeIndex].screen.update();
+      swipers[activeIndex].txt.update();
+    }
   });
-
-  // mobile > li swipers
-  const screen = new Swiper(".rent .screen", {});
-  const txt01 = new Swiper(".rent .txt", {
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    navigation: {
-      nextEl: ".mobile-slide-btn .next-btn",
-      prevEl: ".mobile-slide-btn .prev-btn",
-    },
-  });
-
-  screen.controller.control = txt01;
-  txt01.controller.control = screen;
-
-
-
-  const re_turn = new Swiper(".return", {});
-  const bicycle = new Swiper(".bicycle", {});
-  const trip = new Swiper(".trip", {});
-  const history = new Swiper(".history", {});
 }); //end
