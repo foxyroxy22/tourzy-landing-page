@@ -155,7 +155,6 @@ $(document).ready(function () {
   // 각 탭별 swiper 초기화 함수
   function initSwiper(index) {
     const screen = new Swiper(`.screen-${index}`, {
-      // screen swiper 설정 (필요한 옵션 추가 가능)
     });
 
     const txt = new Swiper(`.txt-${index}`, {
