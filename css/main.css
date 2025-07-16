@@ -899,8 +899,8 @@ header h1 img {
 
 .manual .inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   position: relative;
   top: 50%;
   left: 50%;
@@ -938,13 +938,12 @@ header h1 img {
 .manual .mobile > li {
   display: flex;
   align-items: center;
-  gap: 5vw;
+  gap: 20px;
   color: #fff;
 }
 .manual .mobile .screen {
   width: 30%;
   position: relative;
-  border-radius: 80px;
   overflow: hidden;
   height: 70vh;
 }
@@ -958,9 +957,6 @@ header h1 img {
   left: 0;
   z-index: 9;
 }
-.manual .mobile .screen ul li {
-  border-radius: 50px 50px;
-}
 .manual .mobile .screen ul li img {
   width: 96%;
   height: 96%;
@@ -969,8 +965,8 @@ header h1 img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 12%;
 }
-
 .manual .mobile > li .txt {
   width: calc((100% - 5vw) / 2);
   height: 40vh;
@@ -1011,6 +1007,62 @@ header h1 img {
 .mobile-slide-btn > div.swiper-button-disabled:hover {
   color: #fff !important;
   opacity: 0.5;
+}
+
+@media (max-width: 1670px) {
+  .manual .inner {
+    transform: translate(-50%, -50%);
+  }
+  .manual .mobile .screen {
+    height: 500px;
+  }
+  .manual .mobile .screen ul li img {
+    border-radius: 25%;
+  }
+}
+
+@media (max-width: 1440px) {
+  .manual .mobile .screen ul li img {
+    border-radius: 14%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .manual .menu h3 {
+    font-size: 6rem;
+  }
+  .manual .mobile {
+    width: 60%;
+  }
+  .manual .mobile .screen {
+    height: 400px;
+  }
+  .manual .mobile .screen ul li img {
+    border-radius: 18%;
+  }
+  .manual .mobile > li {
+    gap: 20px;
+  }
+  .manual .mobile > li .txt {
+    height: 35vh;
+  }
+  .manual .mobile > li .txt h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  .manual .mobile > li .txt .mobile-slide-btn {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 1160px) {
+    .manual .mobile .screen {
+    height: 380px;
+  }
+}
+@media (max-width: 1090px) {
+    .manual .mobile .screen {
+    height: 360px;
+  }
 }
 
 /* partner */
