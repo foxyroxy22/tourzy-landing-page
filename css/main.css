@@ -126,9 +126,23 @@ header h1 img {
   .gnb > li {
     font-size: 1.8rem;
   }
+
+  .section {
+    height: max-content;
+    padding: 100px 0;
+  }
+
+
+  .fp-section.fp-table, .fp-slide.fp-table{
+    height: 100% !important;
+  }
+  .fp-tableCell{
+    height: 100% !important;
+  }
 }
-@media (max-width: 765px) {
-  header {
+
+@media(max-width:765px){
+  header{
     padding-top: 40px;
   }
   header h1 {
@@ -574,6 +588,7 @@ header h1 img {
 }
 
 /* ideology */
+
 .ideology {
   position: relative;
 }
@@ -592,16 +607,23 @@ header h1 img {
 }
 
 .ideology ul {
-  height: calc(100% - 320px);
+  height: calc(100% - 330px);
   display: flex;
   margin: 0 0 0 auto;
   justify-content: end;
   align-items: end;
   gap: 30px;
-  width: 91%;
   position: absolute;
   bottom: 0; /* 0에서 10%로 변경 */
   right: 0;
+}
+
+.ideology .inner:last-child{
+  position: relative;
+  height: 100%;
+}
+.ideology ul{
+  padding: 0 20px;
 }
 .ideology ul li {
   width: calc((100% - 60px) / 3);
@@ -648,7 +670,11 @@ header h1 img {
   .ideology ul {
     gap: 20px;
     width: 100%;
-    height: calc(100% - 290px);
+    height: calc(100% - 320px);
+  }
+    .ideology ul li {
+    width: calc((100% - 40px) / 3);
+    text-align: center;
   }
   .ideology ul li strong {
     font-size: 4rem;
@@ -661,8 +687,25 @@ header h1 img {
     font-size: 1.6rem;
   }
 }
+@media (max-width:1024px){
+  .ideology .fp-tableCell{
+      height: 500px !important;
+      position: relative;
+  }
+  .ideology h2{
+    margin: 0;
+    top: 0;
+  }
+  .ideology ul{
+    height: 400px !important;
+  }
+}
 
-@media (max-width: 1024px) {
+@media (max-width:765px){
+  .ideology ul{
+    flex-direction: column;
+  }
+
 }
 
 /* esg */
@@ -733,15 +776,17 @@ header h1 img {
 
 .function ul {
   display: flex;
+  max-width: 1600px;
+  width: 100%;
+  height: calc(100% - 380px);
   gap: 40px;
   position: absolute;
-  width: 81%;
   bottom: 0;
 }
 .function ul li {
   width: calc((100% - 120px) / 4);
   border-radius: 40px 40px 0 0;
-  height: 570px;
+  height: 100%;
   padding: 60px 30px 100px;
   display: flex;
   flex-direction: column;
@@ -783,6 +828,12 @@ header h1 img {
 .function .more:hover {
   background-color: var(--main-color);
   color: #1a1a1a;
+}
+
+@media (max-width:1024px){
+  .function .fp-tableCell{
+    height: 500px !important;
+  }
 }
 
 /* manual */
