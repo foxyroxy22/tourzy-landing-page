@@ -699,6 +699,9 @@ header h1 img {
 }
 
 @media (max-width:765px){
+  .ideology{
+    padding-bottom: 20px;
+  }
   .ideology h2{
     font-size: 3rem;
   }
@@ -793,8 +796,11 @@ header h1 img {
 }
 .esg ul li {
   width: calc(100% / 3);
+}
+.esg ul li:not(:last-child){
   border-right: 1px solid #fff;
 }
+
 .esg ul li p {
   font-weight: 100;
   color: #fff;
@@ -807,9 +813,51 @@ header h1 img {
   font-size: 1.8rem;
 }
 
+@media(max-width:1200px){
+  .esg h3{
+    font-size: 8rem;
+  }
+  .esg h3 + p{
+    font-size: 1.6rem;
+  }
+  .esg h4{
+    font-size: 5rem;
+  }
+  .esg ul li{
+    padding: 0 10px;
+  }
+  .esg ul li p{
+    font-size: 3rem;
+  }
+  .esg ul li span{
+    font-size: 1.4rem;
+  }
+}
+
+@media(max-width:765px){
+  .esg ul{
+    flex-direction: column;
+    align-items: center;
+  }
+  .esg ul li{
+    padding: 20px 0;
+    text-align: left;
+    width: 80%;
+  }
+  .esg ul li:not(:last-child){
+    border-right: 0;
+    border-bottom: 1px solid #fff;
+  }
+}
+
+
 /* function */
 .function {
   position: relative;
+}
+.function .inner{
+  position: relative;
+  height: 100%;
 }
 .function .txt {
   display: flex;
@@ -825,24 +873,23 @@ header h1 img {
 }
 
 .function ul {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
   display: flex;
   max-width: 1600px;
   width: 100%;
   height: calc(100% - 380px);
   gap: 40px;
-  position: absolute;
-  bottom: 0;
 }
 .function ul li {
   width: calc((100% - 120px) / 4);
   border-radius: 40px 40px 0 0;
   height: 100%;
   padding: 60px 30px 100px;
-  display: flex;
-  flex-direction: column;
   color: #fff;
   text-align: center;
-  justify-content: space-between;
 }
 .function ul li:nth-child(1) {
   background: url(../img/function01.png) no-repeat center / cover;
@@ -863,28 +910,144 @@ header h1 img {
 }
 .function ul li p {
   font-weight: 100;
+  margin-bottom: 120px;
+  height: 100px;
 }
 
 .function .more {
   background-color: #fff;
   color: #373737;
   margin: 0 auto;
+  width: 80%;
   padding: 15px 40px;
   text-transform: uppercase;
   border-radius: 50px;
   transition: all 0.5s;
   cursor: pointer;
 }
+.function .more a{
+  white-space: nowrap;
+}
 .function .more:hover {
   background-color: var(--main-color);
   color: #1a1a1a;
 }
-
-@media (max-width:1024px){
-  .function .fp-tableCell{
-    height: 500px !important;
+@media (max-width:1300px){
+  .function ul li h4{
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+  }
+  .function ul li p{
+    margin-bottom: 100px;
+  }
+  .function ul{
+    gap: 20px;
+  }
+  .function ul li{
+    width: calc((100% - 60px) / 4);
+  }
+  .function ul li p br{
+    display: none;
+  }
+  .function .more{
+    width: 100%;
   }
 }
+
+@media (max-width:1024px){
+  .function{
+    padding-bottom: 0;
+  }
+  .function .txt{
+    top: 60px;
+    gap: 30px;
+  }
+  .function .txt h3{
+    font-size: 7rem;
+  }
+  .function .txt p{
+    font-size: 1.4rem;
+  }
+  .function .fp-tableCell{
+    height: 650px !important;
+  }
+  .function ul{
+    height: calc(100% - 250px);
+    gap: 10px;
+  }
+  .function ul li{
+    width: calc((100% - 30px) / 4);
+    padding: 50px 10px;
+  }
+  .function ul li h4{
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  .function ul li p{
+    font-size: 1.4rem;
+    margin-bottom: 60px;
+  }
+  .function .more{
+    padding: 8px 20px;
+    width: max-content;
+  }
+  .function .more a{
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width:765px){
+  .function .fp-tableCell{
+    height: 920px !important;
+  }
+  .function .txt{
+    top: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .function .txt h3{
+    font-size: 6rem;
+  }
+  .function ul{
+    bottom: 150px;
+    height: max-content;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 12px;
+  }
+  .function ul li{
+    width : calc((100% - 10px) / 2);
+    height: 280px;
+    padding: 30px 10px;
+    border-radius: 20px;
+  }
+  .function ul li p{
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width:410px){
+  .function .txt h3{
+    font-size: 4.5rem;
+  }
+  .function .txt p{
+    font-size: 1.2rem;
+  }
+  .function ul li h4{
+    font-size: 1.8rem;
+  }
+  .function ul li p{
+    font-size: 1.2rem;
+  }
+  .function .more{
+    padding: 6px 16px;
+  }
+  .function .more a{
+    font-size: 1.2rem;
+  }
+}
+
 
 /* manual */
 .manual {
