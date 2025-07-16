@@ -24,11 +24,11 @@
     padding: 100px 0;
   }
 
-  .fp-section.fp-table,
-  .fp-slide.fp-table {
+
+  .fp-section.fp-table, .fp-slide.fp-table{
     height: 100% !important;
   }
-  .fp-tableCell {
+  .fp-tableCell{
     height: 100% !important;
   }
 }
@@ -125,13 +125,13 @@ header h1 img {
   .gnb > li {
     font-size: 1.8rem;
   }
-  header.white {
+    header.white {
     color: #1a1a1a;
   }
 }
 
-@media (max-width: 765px) {
-  header {
+@media(max-width:765px){
+  header{
     padding-top: 40px;
   }
   header h1 {
@@ -629,10 +629,10 @@ header h1 img {
   color: #409834;
 }
 .ideology ul li:nth-child(2) strong {
-  color: #5db398;
+  color: #5DB398;
 }
 .ideology ul li:nth-child(3) strong {
-  color: #4f81aa;
+  color: #4F81AA;
 }
 
 .ideology ul li span.unit {
@@ -673,38 +673,38 @@ header h1 img {
     font-size: 1.6rem;
   }
 }
-@media (max-width: 1024px) {
-  .ideology .fp-tableCell {
-    height: 500px !important;
-    position: relative;
+@media (max-width:1024px){
+  .ideology .fp-tableCell{
+      height: 500px !important;
+      position: relative;
   }
-  .ideology h2 {
+  .ideology h2{
     margin: 0;
     top: 0;
   }
-  .ideology ul {
+  .ideology ul{
     height: 400px !important;
   }
 }
 
-@media (max-width: 765px) {
-  .ideology {
+@media (max-width:765px){
+  .ideology{
     padding-bottom: 20px;
   }
-  .ideology h2 {
+  .ideology h2{
     font-size: 3rem;
   }
-  .ideology h2 span {
+  .ideology h2 span{
     font-size: 3rem;
   }
-  .ideology ul {
+  .ideology ul{
     flex-direction: column;
   }
-  .ideology .fp-tableCell {
-    height: 800px !important;
-    position: relative;
+  .ideology .fp-tableCell{
+      height: 800px !important;
+      position: relative;
   }
-  .ideology ul {
+  .ideology ul{
     height: auto !important;
     gap: 10px;
     right: auto;
@@ -714,33 +714,33 @@ header h1 img {
     justify-content: space-between;
     padding: 0;
   }
-  .ideology ul li {
+  .ideology ul li{
     height: 200px !important;
     position: relative;
   }
-  .ideology ul li:nth-child(1) {
-    width: 80%;
+  .ideology ul li:nth-child(1){
+     width: 80%;
   }
-  .ideology ul li:nth-child(2) {
+  .ideology ul li:nth-child(2){
     width: 90%;
   }
-  .ideology ul li:nth-child(3) {
-    width: 100%;
+  .ideology ul li:nth-child(3){
+     width: 100%;
   }
-  .ideology ul li div {
+  .ideology ul li div{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 20px;
     text-align: left;
   }
-  .ideology ul li div span {
+  .ideology ul li div span{
     color: #fff;
   }
-  .ideology ul li span.txt {
+  .ideology ul li span.txt{
     white-space: wrap;
   }
-  .ideology ul li img {
+  .ideology ul li img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -785,7 +785,7 @@ header h1 img {
 .esg ul li {
   width: calc(100% / 3);
 }
-.esg ul li:not(:last-child) {
+.esg ul li:not(:last-child){
   border-right: 1px solid #fff;
 }
 
@@ -801,49 +801,50 @@ header h1 img {
   font-size: 1.8rem;
 }
 
-@media (max-width: 1200px) {
-  .esg h3 {
+@media(max-width:1200px){
+  .esg h3{
     font-size: 8rem;
   }
-  .esg h3 + p {
+  .esg h3 + p{
     font-size: 1.6rem;
   }
-  .esg h4 {
+  .esg h4{
     font-size: 5rem;
   }
-  .esg ul li {
+  .esg ul li{
     padding: 0 10px;
   }
-  .esg ul li p {
+  .esg ul li p{
     font-size: 3rem;
   }
-  .esg ul li span {
+  .esg ul li span{
     font-size: 1.4rem;
   }
 }
 
-@media (max-width: 765px) {
-  .esg ul {
+@media(max-width:765px){
+  .esg ul{
     flex-direction: column;
     align-items: center;
   }
-  .esg ul li {
+  .esg ul li{
     padding: 20px 0;
     text-align: left;
     width: 80%;
   }
-  .esg ul li:not(:last-child) {
+  .esg ul li:not(:last-child){
     border-right: 0;
     border-bottom: 1px solid #fff;
   }
 }
+
 
 /* function */
 .function {
   position: relative;
   padding: 50px 0 0;
 }
-.function .inner {
+.function .inner{
   position: relative;
   height: 100%;
 }
@@ -914,7 +915,7 @@ header h1 img {
   transition: all 0.5s;
   cursor: pointer;
 }
-.function .more a {
+.function .more a{
   white-space: nowrap;
 }
 .function .more:hover {
@@ -922,121 +923,124 @@ header h1 img {
   color: #1a1a1a;
 }
 
-@media (max-width: 1300px) {
-  .function ul li h4 {
+@media (max-width:1300px){
+  .function ul li h4{
     font-size: 2.4rem;
     margin-bottom: 40px;
   }
-  .function ul li p {
+  .function ul li p{
     margin-bottom: 100px;
   }
-  .function ul {
+  .function ul{
     gap: 20px;
   }
-  .function ul li {
+  .function ul li{
     width: calc((100% - 60px) / 4);
   }
-  .function ul li p br {
+  .function ul li p br{
     display: none;
   }
-  .function .more {
+  .function .more{
     width: 100%;
   }
 }
 
-@media (max-width: 1024px) {
-  .function {
+@media (max-width:1024px){
+  .function{
     padding-bottom: 0;
   }
-  .function .txt {
+  .function .txt{
     top: 60px;
     gap: 30px;
   }
-  .function .txt h3 {
+  .function .txt h3{
     font-size: 7rem;
   }
-  .function .txt p {
+  .function .txt p{
     font-size: 1.4rem;
   }
-  .function .fp-tableCell {
+  .function .fp-tableCell{
     height: 650px !important;
   }
-  .function ul {
+  .function ul{
     height: calc(100% - 250px);
     gap: 10px;
   }
-  .function ul li {
+  .function ul li{
     width: calc((100% - 30px) / 4);
     padding: 50px 10px;
   }
-  .function ul li h4 {
+  .function ul li h4{
     font-size: 2rem;
     margin-bottom: 30px;
   }
-  .function ul li p {
+  .function ul li p{
     font-size: 1.4rem;
     margin-bottom: 60px;
   }
-  .function .more {
+  .function .more{
     padding: 8px 20px;
     width: max-content;
   }
-  .function .more a {
+  .function .more a{
     font-size: 1.4rem;
   }
 }
 
-@media (max-width: 765px) {
-  .function .fp-tableCell {
+@media (max-width:765px){
+  .function .fp-tableCell{
     height: 920px !important;
   }
-  .function .txt {
+  .function .txt{
     top: 30px;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
-  .function .txt h3 {
+  .function .txt h3{
     font-size: 6rem;
   }
-  .function ul {
+  .function ul{
     bottom: 150px;
     height: max-content;
     justify-content: center;
     flex-wrap: wrap;
     padding: 0 12px;
   }
-  .function ul li {
-    width: calc((100% - 10px) / 2);
+  .function ul li{
+    width : calc((100% - 10px) / 2);
     height: 280px;
     padding: 30px 10px;
     border-radius: 20px;
   }
-  .function ul li p {
+  .function ul li p{
     margin-bottom: 30px;
   }
 }
 
-@media (max-width: 410px) {
-  .function .txt h3 {
+@media (max-width:410px){
+  .function .txt h3{
     font-size: 4.5rem;
   }
-  .function .txt p {
+  .function .txt p{
     font-size: 1.2rem;
   }
-  .function ul li h4 {
+  .function ul li h4{
     font-size: 1.8rem;
   }
-  .function ul li p {
+  .function ul li p{
     font-size: 1.2rem;
   }
-  .function .more {
+  .function .more{
     padding: 6px 16px;
   }
-  .function .more a {
+  .function .more a{
     font-size: 1.2rem;
   }
 }
+
+
+
 
 /* manual */
 .manual {
@@ -1240,8 +1244,7 @@ header h1 img {
     padding: 50px 0 0;
   }
   .manual .orange {
-    background: url(../img/manual_bg_tablet.png) no-repeat bottom center /
-      contain;
+    background: url(../img/manual_bg_tablet.png) no-repeat bottom center / contain;
     height: 800px;
     padding: 130px 0 150px;
     width: 100%;
@@ -1292,7 +1295,7 @@ header h1 img {
   .manual .orange .inner {
     top: 20%;
   }
-  .manual .mobile .screen {
+  .manual .mobile .screen{
     height: 330px;
   }
 }
@@ -1300,11 +1303,10 @@ header h1 img {
   .manual {
     padding: 50px 0 0;
   }
-  .manual .orange {
+    .manual .orange {
     height: max-content;
-    padding: 0 0 50ㅔㅌ;
-    background: url(../img/manual_bg_mobile.png) no-repeat bottom center /
-      contain;
+    padding: 50px 0;
+    background: url(../img/manual_bg_mobile.png) no-repeat bottom center / contain;
   }
   .manual .mobile > li {
     flex-wrap: wrap;
@@ -1314,10 +1316,10 @@ header h1 img {
     width: 100%;
     height: 400px;
   }
-  .manual .mobile .screen ul li img {
+    .manual .mobile .screen ul li img {
     border-radius: 45%;
   }
-  .manual .mobile > li .txt {
+  .manual .mobile > li .txt{
     width: 100%;
     height: 250px;
     text-align: center;
@@ -1333,11 +1335,10 @@ header h1 img {
   }
   .manual .orange {
     padding: 0 0 50px;
-    background: url(../img/manual_bg_mobile_mini.png) no-repeat bottom center /
-      contain;
+    background: url(../img/manual_bg_mobile_mini.png) no-repeat bottom center / contain;
   }
   .manual .orange .inner {
-    padding: 20px 0 0;
+    padding: 70px 0 0;
   }
   .manual .menu h3 {
     font-size: 3.5rem;
@@ -1360,9 +1361,8 @@ header h1 img {
   .manual {
     padding: 50px 0 0;
   }
-  .manual .orange {
-    background: url(../img/manual_bg_mobile_extra_mini.png) no-repeat bottom
-      center / contain;
+.manual .orange {
+    background: url(../img/manual_bg_mobile_extra_mini.png) no-repeat bottom center / contain;
     padding: 0 20px 50px;
   }
   .manual .menu ul li {
@@ -1489,10 +1489,10 @@ header h1 img {
   .partner {
     padding: 90px 0 0;
   }
-  .partner h2 {
-    font-size: 5rem;
-    margin-bottom: 30px;
-  }
+    .partner h2 {
+      font-size: 5rem;
+      margin-bottom: 30px;
+    }
 }
 
 /* footer */
