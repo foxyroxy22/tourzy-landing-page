@@ -861,6 +861,8 @@ header h1 img {
 }
 
 .function ul {
+  height: calc(100% - 382px);
+  width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -943,7 +945,7 @@ header h1 img {
 }
 
 @media (max-width:1024px){
-    .function{
+  .function{
     padding-bottom: 0;
   }
   .function .txt{
