@@ -186,19 +186,24 @@ $(window).on('scroll', function() {
   $(".mobile > li").eq(0).show();
 
   // 각 탭별 swiper 초기화 함수
-  function initSwiper(index) {
+  // 각 탭별 swiper 초기화 함수
+function initSwiper(index) {
     const screen = new Swiper(`.screen-${index}`, {
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        }
     });
 
     const txt = new Swiper(`.txt-${index}`, {
-      effect: "fade",
-      fadeEffect: {
-        crossFade: true,
-      },
-      navigation: {
-        nextEl: `.btn-${index} .next-btn`,
-        prevEl: `.btn-${index} .prev-btn`,
-      },
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        },
+        navigation: {
+            nextEl: `.btn-${index} .next-btn`,
+            prevEl: `.btn-${index} .prev-btn`,
+        },
     });
 
     // 두 swiper 연동
@@ -206,12 +211,12 @@ $(window).on('scroll', function() {
     txt.controller.control = screen;
 
     return { screen, txt };
-  }
+}
 
-  // 모든 탭의 swiper 초기화 (5개)
-  for (let i = 0; i < 5; i++) {
+// 모든 탭의 swiper 초기화 (5개)
+for (let i = 0; i < 5; i++) {
     swipers[i] = initSwiper(i);
-  }
+}
 
   // 탭 클릭 이벤트
   $(".menu ul li").click(function () {
