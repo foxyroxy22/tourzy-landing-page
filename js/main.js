@@ -31,15 +31,30 @@ $(document).ready(function () {
     },
   }); // fullpage
 
-  // GNB 클릭 이벤트
-  $(".gnb li").on("click", function () {
+// GNB 클릭 이벤트 수정
+$(".gnb li").on("click", function () {
     var sectionNum = $(this).data("section");
     console.log("Clicked section:", sectionNum);
-    $.fn.fullpage.moveTo(sectionNum);
-  });
+    
+    // 반응형 체크 (1024px 이하)
+    if ($(window).width() <= 1024) {
+        // 반응형에서는 직접 스크롤 이동
+        var targetSection = $('.section').eq(sectionNum - 1); // 섹션 번호는 1부터 시작
+        var headerHeight = $('header').outerHeight() || 80;
+        
+        if (targetSection.length) {
+            $('html, body').animate({
+                scrollTop: targetSection.offset().top - headerHeight
+            }, 700);
+        }
+    } else {
+        // 데스크톱에서는 기존 fullpage 이동
+        $.fn.fullpage.moveTo(sectionNum);
+    }
+});
 
-  // GNB 활성화 상태 업데이트 함수
-  function updateGNBActive(currentSection) {
+// GNB 활성화 상태 업데이트 함수 (기존 유지)
+function updateGNBActive(currentSection) {
     console.log("updateGNBActive called with:", currentSection);
 
     $(".gnb li").removeClass("active");
@@ -47,23 +62,41 @@ $(document).ready(function () {
     var activeGNBSection;
     if (currentSection === 1) activeGNBSection = 1; // Home
     else if (currentSection === 2 || currentSection === 3)
-      activeGNBSection = 2; // About Us
+        activeGNBSection = 2; // About Us
     else if (currentSection === 4 || currentSection === 5)
-      activeGNBSection = 4; // App
+        activeGNBSection = 4; // App
     else if (currentSection === 6) activeGNBSection = 6; // Partner
 
     console.log("Current Section:", currentSection);
     console.log("Active GNB Section:", activeGNBSection);
 
     if (activeGNBSection) {
-      $('.gnb li[data-section="' + activeGNBSection + '"]').addClass("active");
-      console.log(
-        "Added active to:",
-        $('.gnb li[data-section="' + activeGNBSection + '"]')
-      );
+        $('.gnb li[data-section="' + activeGNBSection + '"]').addClass("active");
+        console.log(
+            "Added active to:",
+            $('.gnb li[data-section="' + activeGNBSection + '"]')
+        );
     }
-  }
+}
 
+// 반응형에서 스크롤 시 GNB 활성화 상태 업데이트
+$(window).on('scroll', function() {
+    if ($(window).width() <= 1024) {
+        var scrollTop = $(window).scrollTop();
+        var headerHeight = $('header').outerHeight() || 80;
+        
+        // 각 섹션의 위치 확인하여 현재 섹션 판단
+        $('.section').each(function(index) {
+            var sectionTop = $(this).offset().top - headerHeight - 50; // 50px 여유
+            var sectionBottom = sectionTop + $(this).outerHeight();
+            
+            if (scrollTop >= sectionTop && scrollTop < sectionBottom) {
+                updateGNBActive(index + 1); // 섹션 번호는 1부터 시작
+                return false; // 루프 중단
+            }
+        });
+    }
+});
   // 초기 로드 시 첫 번째 섹션 활성화
   updateGNBActive(1);
 

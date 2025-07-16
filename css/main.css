@@ -842,6 +842,7 @@ header h1 img {
 /* function */
 .function {
   position: relative;
+  padding: 50px 0 0;
 }
 .function .inner{
   position: relative;
