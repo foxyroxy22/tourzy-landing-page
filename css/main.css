@@ -1119,7 +1119,7 @@ header h1 img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 12%;
+  /* border-radius: 140px !important; */
 }
 .manual .mobile > li .txt {
   width: calc((100% - 5vw) / 2);
